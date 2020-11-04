@@ -12,9 +12,14 @@ class EventsController < ApplicationController
   end
 
   def create
+    @event = Event.new(event_params)
+    binding.pry
+      @event.save!
+      redirect_to @event
   end
 
-  def shwo
+  def show
+    @event = Event.find_by(id: params[:id])
   end
 
   def edit
@@ -29,7 +34,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:plan, :number, :option, :plan_day, :name, :tel)
+    params.require(:event).permit(:plan, :number, :option, :start_time, :name, :tel)
   end
 
 
