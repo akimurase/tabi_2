@@ -4,6 +4,11 @@ class EventsController < ApplicationController
   end
 
   def new
+    @event = Event.new
+  end
+
+  def confirm
+    @event = Event.new(event_params)
   end
 
   def create
@@ -20,4 +25,12 @@ class EventsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:plan, :number, :option, :plan_day, :name, :tel)
+  end
+
+
 end

@@ -1,0 +1,22 @@
+<h1>確認画面</h1>
+
+  <div class="plan">
+    <p>コース: <%= @event.plan %></p>
+  </div>
+
+<p>参加人数: <%= @event.number %></p>
+<p>オプション: <%= @event.option %></p>
+<p>ご希望日: <%= @event.plan_day %></p>
+<p>代表者名: <%= @event.name %></p>
+<p>電話番号: <%= @event.tel %></p>
+
+
+<%= form_with(model: @event, local: true) do |f| %>
+  <%= f.hidden_field :number %>
+  <%= f.hidden_field :option %>
+  <%= f.hidden_field :plan_day %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :tel %>
+  <%= f.submit "送信" %>
+  <%= f.submit "戻る", name: :back %>
+<% end %>
