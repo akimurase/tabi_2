@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2020_11_04_031424) do
     t.string "plan"
     t.integer "number"
     t.string "option"
-    t.date "plan_day"
+    t.datetime "start_time"
     t.string "name"
-    t.integer "tel"
+    t.string "tel"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
