@@ -1,2 +1,52 @@
 <h1>Events#new</h1>
 <p>Find me in app/views/events/new.html.erb</p>
+
+<h1>お申し込みフォーム</h1>
+
+<div class="#">
+  <div class="#">
+    <ul class="#">
+      <li class="#">お申し込みフォーム（入力画面）</li>
+      <li class="#">お支払い（決済画面）</li>
+      <li class="#">ご予約完了（完了画面）</li>
+    </ul>
+  </div>
+</div>
+
+<%= form_with(model: @event, url:confirm_events_path, local: true) do |form| %>
+
+  <div class="plan">
+    <%= form.label :コース %>
+    <%= form.text_field :plan %>
+  </div>
+
+  <div class="number">
+    <%= form.label :参加人数 %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="option">
+    <%= form.label :オプション %>
+    <%= form.text_field :option %>
+  </div>
+
+    <div class="plan_day">
+    <%= form.label :ご希望日 %>
+    <%= form.date_select :plan_day %>
+  </div>
+
+  <div class="name">
+    <%= form.label :代表者名 %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="tel">
+    <%= form.label :電話番号 %>
+    <%= form.text_field :tel %>
+  </div>
+
+  <div class="submit">
+    <%= form.submit "確認画面へ", class:"#" %>
+  </div>
+
+<% end %>

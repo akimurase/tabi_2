@@ -4,3 +4,5 @@
 <%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
 <% end %>
+
+<%= link_to 'push', new_event_path %>
