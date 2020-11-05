@@ -10,6 +10,9 @@ class EventsController < ApplicationController
   def confirm
     @event = Event.new(event_params)
     render :new if @event.invalid?
+    # if @event.invalid? #上と同義
+    #   render :new
+    # end
   end
 
   def create

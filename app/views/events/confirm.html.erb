@@ -1,3 +1,5 @@
+<h1>Events#confirm</h1>
+
 <h1>確認画面</h1>
 
   <div class="plan">
@@ -12,15 +14,17 @@
 
 
 <%= form_with(model: @event, local: true) do |f| %>
-<%# 決済機能 %>
-<h1>お支払い</h1>
-
   <%= f.hidden_field :plan %>
   <%= f.hidden_field :number %>
   <%= f.hidden_field :option %>
   <%= f.hidden_field :start_time %>
   <%= f.hidden_field :name %>
   <%= f.hidden_field :tel %>
+
+  <%# 決済機能 %>
+  <h1>お支払い</h1>
+
+
   <%= f.submit "送信" %>
   <%= f.submit "戻る", name: :back %>
 <% end %>

@@ -16,32 +16,32 @@
 <%= form_with(model: @event, url:confirm_events_path, local: true) do |form| %>
 
   <div class="plan">
-    <%= form.label :コース %>
+    <%= form.label :plan, 'コース' %>
     <%= form.text_field :plan %>
   </div>
 
   <div class="number">
-    <%= form.label :参加人数 %>
+    <%= form.label :number, '参加人数' %>
     <%= form.text_field :number %>
   </div>
 
   <div class="option">
-    <%= form.label :オプション %>
+    <%= form.label :option, 'オプション' %>
     <%= form.text_field :option %>
   </div>
 
     <div class="plan_day">
-    <%= form.label :ご希望日 %>
+    <%= form.label :start_time, 'ご希望日' %>
     <%= form.date_select :start_time %>
   </div>
 
   <div class="name">
-    <%= form.label :代表者名 %>
+    <%= form.label :name, '代表者名' %>
     <%= form.text_field :name %>
   </div>
 
   <div class="tel">
-    <%= form.label :電話番号 %>
+    <%= form.label :tel, '電話番号' %>
     <%= form.text_field :tel %>
   </div>
 
