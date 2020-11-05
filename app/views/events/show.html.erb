@@ -1,2 +1,9 @@
-<h1>Events#shwo</h1>
-<p>Find me in app/views/events/shwo.html.erb</p>
+<h1>ご予約完了しました。</h1>
+
+<p>参加人数: <%= @event.number %></p>
+<p>オプション: <%= @event.option %></p>
+<p>ご希望日: <%= @event.start_time %></p>
+<p>代表者名: <%= @event.name %></p>
+<p>電話番号: <%= @event.tel %></p>
+
+<%= link_to "topに戻る" %>

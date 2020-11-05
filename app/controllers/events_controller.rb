@@ -9,12 +9,19 @@ class EventsController < ApplicationController
 
   def confirm
     @event = Event.new(event_params)
+    render :new if @event.invalid?
   end
 
   def create
     @event = Event.new(event_params)
-      @event.save!
+    if params[:back]
+      render :new
+    elsif @event.save!
       redirect_to @event
+    else
+      render :new
+    end
+    # render :new and return if params[:back] || !@event.save #この記述は上と一緒
   end
 
   def show
