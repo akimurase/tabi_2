@@ -13,6 +13,7 @@
   </div>
 </div>
 
+<%# confirm_eventsは作成した確認画面  ordersはフォームオブヘクトで決済画面 %>
 <%= form_with(model: @event, url:confirm_events_path, local: true) do |form| %>
 
   <div class="plan">
@@ -43,6 +44,11 @@
   <div class="tel">
     <%= form.label :tel, '電話番号' %>
     <%= form.text_field :tel %>
+  </div>
+
+  <div class="price">
+    <%= form.label :price, '値段' %>
+    <%= form.text_field :price %>
   </div>
 
   <div class="submit">
