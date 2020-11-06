@@ -15,12 +15,25 @@ class EventsController < ApplicationController
     # end
   end
 
+  # def create
+  #   @event = Event.new(event_params)
+  #   if params[:back]
+  #     render :new
+  #   elsif @event.save!
+  #     redirect_to @event
+  #   else
+  #     render :new
+  #   end
+  #   # render :new and return if params[:back] || !@event.save #この記述は上と一緒
+  # end
   def create
     @event = Event.new(event_params)
     if params[:back]
       render :new
-    elsif @event.save!
-      redirect_to @event
+    elsif @event.valid?
+      pay_event
+      @event.save!
+      return redirect_to @event
     else
       render :new
     end
@@ -43,8 +56,15 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:plan, :number, :option, :start_time, :name, :tel)
+    params.require(:event).permit(:plan, :num, :option, :start_time, :name, :tel, :price, :token)
   end
 
-
+  def pay_event
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # 環境変数に入れて呼び込む
+    Payjp::Charge.create(
+      amount: @event.price, # 商品の値段はitemテーブルのpriceカラムから持ってくる。indexに@itemの定義も必要
+      card: event_params[:token], # カードトークン
+      currency: 'jpy'                 # 通貨の種類(日本円)
+    )
+  end
 end

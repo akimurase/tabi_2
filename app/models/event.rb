@@ -1,3 +1,4 @@
 class Event < ApplicationRecord
-  validates :plan, :number, :option, :start_time, :name, :tel, presence: true
+  attr_accessor :token
+  validates :plan, :num, :option, :start_time, :name, :tel, :price, presence: true
 end
