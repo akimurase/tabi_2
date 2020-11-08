@@ -1,8 +1,17 @@
 <%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
-
+  
+  <ul class="event-list">
     <% events.each do |event| %>
-      <%= event.plan %>
+    <li class="list">
+      <%= link_to edit_event_path(event.id) do %>
+        <%= event.plan %>
+        <%= event.name %>
+        <%= event.num %>
+      <% end %>
+    </li>
+  </ul>
+      
   <% end %>
 <% end %>
 
