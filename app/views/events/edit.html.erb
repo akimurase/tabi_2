@@ -1,2 +1,72 @@
 <h1>Events#edit</h1>
 <p>Find me in app/views/events/edit.html.erb</p>
+
+<%= form_with(model: @event, local: true) do |f| %>
+
+<div class="">
+  <div class="">
+    <p>参加希望日</p>
+  </div>
+  <div class ="">
+    <%= f.text_field :start_time %>
+  </div>
+</div>
+
+<div class="">
+  <div class="">
+    <p>コース</p>
+  </div>
+  <div class ="">
+    <%= f.text_field :plan %>
+  </div>
+</div>
+
+<div class="">
+  <div class="">
+    <p>参加人数</p>
+  </div>
+  <div class ="">
+    <%= f.text_field :num %>
+  </div>
+</div>
+
+<div class="">
+  <div class="">
+    <p>オプション</p>
+  </div>
+  <div class ="">
+    <%= f.text_field :option %>
+  </div>
+</div>
+
+
+<div class="">
+  <div class="">
+    <p>代表者名</p>
+  </div>
+  <div class ="">
+    <%= f.text_field :name %>
+  </div>
+</div>
+
+<div class="">
+  <div class="">
+    <p>TEL</p>
+  </div>
+  <div class ="">
+    <%= f.text_field :tel %>
+  </div>
+</div>
+
+<div class="">
+  <div class="">
+    <p>料金</p>
+  </div>
+  <div class ="">
+    <%= f.text_field :price %>
+  </div>
+</div>
+
+    <%= f.submit "編集する" %>
+  <%= link_to "戻る", root_path%>
+<% end %>
