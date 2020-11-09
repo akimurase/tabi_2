@@ -14,45 +14,52 @@
 </div>
 
 <%# confirm_eventsは作成した確認画面  ordersはフォームオブヘクトで決済画面 %>
-<%= form_with(model: @event, url:confirm_events_path, local: true) do |form| %>
+<%= form_with(model: @event, url:confirm_events_path, local: true) do |f| %>
 
   <div class="plan">
-    <%= form.label :plan, 'コース' %>
-    <%= form.text_field :plan %>
+    <%= f.label :plan, 'コース' %>
+    <%# <%= form.text_field :plan %> 
+    <%# neme属性以外のオプションを追加した時は下記に記述に変わる %>
+    <% plan_options = Plan.order(:id).map { |c| [c.name, c.id, data: { price: c.price }] } %>
+    <%= f.select(:paln_id, plan_options, {class:"#", data:{select:0}, id:"#" }) %>
   </div>
 
   <div class="number">
-    <%= form.label :num, '参加人数' %>
-    <%= form.text_field :num %>
+    <%= f.label :num, '参加人数' %>
+      <% num_options = Num.order(:id).map { |c| [c.name, c.id, data: { multiple: c.multiple }] } %>
+    <%= f.select(:num_id, num_options, {class:"#", data:{select:0}, id:"#" }) %>
+
   </div>
 
   <div class="option">
-    <%= form.label :option, 'オプション' %>
-    <%= form.text_field :option %>
+    <%= f.label :option, 'オプション' %>
+      <% plan_options = Option.order(:id).map { |c| [c.name, c.id, data: { price: c.price }] } %>
+    <%= f.select(:paln_id, plan_options, {class:"#", data:{select:0}, id:"#" }) %>
+
   </div>
 
     <div class="plan_day">
-    <%= form.label :start_time, 'ご希望日' %>
-    <%= form.date_select :start_time %>
+    <%= f.label :start_time, 'ご希望日' %>
+    <%= f.date_select :start_time %>
   </div>
 
   <div class="name">
-    <%= form.label :name, '代表者名' %>
-    <%= form.text_field :name %>
+    <%= f.label :name, '代表者名' %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="tel">
-    <%= form.label :tel, '電話番号' %>
-    <%= form.text_field :tel %>
+    <%= f.label :tel, '電話番号' %>
+    <%= f.text_field :tel %>
   </div>
 
   <div class="price">
-    <%= form.label :price, '値段' %>
-    <%= form.text_field :price %>
+    <%= f.label :price, '値段' %>
+    <%= f.text_field :price %>
   </div>
 
   <div class="submit">
-    <%= form.submit "確認画面へ", class:"#" %>
+    <%= f.submit "確認画面へ", class:"#" %>
   </div>
 
 <% end %>
