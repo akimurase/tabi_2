@@ -21,21 +21,19 @@
     <%# <%= form.text_field :plan %> 
     <%# neme属性以外のオプションを追加した時は下記に記述に変わる %>
     <% plan_options = Plan.order(:id).map { |c| [c.name, c.id, data: { price: c.price }] } %>
-    <%= f.select(:paln_id, plan_options, {class:"#", data:{select:0}, id:"#" }) %>
+    <%= f.select(:plan_id, plan_options, {class:"#", data:{select:0}, id:"#" }) %>
   </div>
 
   <div class="number">
     <%= f.label :num, '参加人数' %>
       <% num_options = Num.order(:id).map { |c| [c.name, c.id, data: { multiple: c.multiple }] } %>
     <%= f.select(:num_id, num_options, {class:"#", data:{select:0}, id:"#" }) %>
-
   </div>
 
   <div class="option">
     <%= f.label :option, 'オプション' %>
-      <% plan_options = Option.order(:id).map { |c| [c.name, c.id, data: { price: c.price }] } %>
-    <%= f.select(:paln_id, plan_options, {class:"#", data:{select:0}, id:"#" }) %>
-
+      <% o_options = Option.order(:id).map { |c| [c.name, c.id, data: { optionprice: c.optionprice }] } %>
+    <%= f.select(:option_id, o_options, {class:"#", data:{select:0}, id:"#" }) %>
   </div>
 
     <div class="plan_day">
@@ -53,9 +51,10 @@
     <%= f.text_field :tel %>
   </div>
 
-  <div class="price">
+  <%# <div class="price"> %>
+  <div class="price" id="event_price">
     <%= f.label :price, '値段' %>
-    <%= f.text_field :price %>
+    <%= f.text_field :price  %>
   </div>
 
   <div class="submit">

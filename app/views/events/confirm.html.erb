@@ -2,16 +2,28 @@
 
 <h1>確認画面</h1>
 
-  <div class="plan">
-    <p>コース: <%= @event.plan %></p>
+  <div class="">
+    <p>コース: <%= @event.plan.name %></p>
+  </div>
+  <div class="">
+    <p>参加人数: <%= @event.num.name %></p>
+  </div>
+  <div class="">
+    <p>オプション: <%= @event.option.name %></p>
+  </div>
+  <div class="">
+    <p>ご希望日: <%= @event.start_time %></p>
+  </div>
+  <div class="">
+    <p>代表者名: <%= @event.name %></p>
+  </div>
+  <div class="">
+    <p>電話番号: <%= @event.tel %></p>
+  </div>
+  <div class="">
+    <p>料金: <%= @event.price %></p>
   </div>
 
-<p>参加人数: <%= @event.num %></p>
-<p>オプション: <%= @event.option %></p>
-<p>ご希望日: <%= @event.start_time %></p>
-<p>代表者名: <%= @event.name %></p>
-<p>電話番号: <%= @event.tel %></p>
-<p>料金: <%= @event.price %></p>
 
 
 <%= form_with(model: @event, id: 'charge-form', local: true) do |f| %>
