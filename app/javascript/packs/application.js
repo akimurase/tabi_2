@@ -7,9 +7,10 @@ require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("../card") 
-require("../test") 
-require('jquery')
+require("../card")
+// require("../test")
+// require('jquery')
+// require('../jquery_test')
 
 
 
