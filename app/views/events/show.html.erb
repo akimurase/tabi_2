@@ -1,9 +1,16 @@
 <h1>ご予約完了しました。</h1>
 
-<p>参加人数: <%= @event.num %></p>
-<p>オプション: <%= @event.option %></p>
+
+<p>コース: <%= @event.plan.name %></p>
+<p>参加人数: <%= @event.num.name %></p>
+<p>オプション: <%= @event.option.name %></p>
 <p>ご希望日: <%= @event.start_time %></p>
 <p>代表者名: <%= @event.name %></p>
 <p>電話番号: <%= @event.tel %></p>
 
-<%= link_to "topに戻る", root_path %>
+<div>
+  <%= link_to "Topへ戻る" %>
+</div>
+<div>
+  <%= link_to "事業者用管理画面へ", root_path %>
+</div>

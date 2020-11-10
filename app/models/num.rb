@@ -1,7 +1,7 @@
 class Num < ActiveHash::Base
   self.data = [
     { id: 0, name: '--' },
-    { id: 1, name: '1', multiple:1 },
+    { id: 1, name: '1人参加はお問い合わせ下さい' },
     { id: 2, name: '2', multiple:2 },
     { id: 3, name: '3', multiple:3 },
     { id: 4, name: '4', multiple:4 },
@@ -12,6 +12,6 @@ class Num < ActiveHash::Base
     { id: 9, name: '9', multiple:9 },
     { id: 10, name: '10', multiple:10 },
     { id: 11, name: '11', multiple:11 },
-    { id: 12, name: 'お問い合わせください' },
+    { id: 12, name: '12人以上はお問い合わせください' },
   ]
 end

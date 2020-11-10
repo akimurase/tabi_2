@@ -5,9 +5,9 @@
     <% events.each do |event| %>
     <li class="list">
       <%= link_to edit_event_path(event.id) do %>
-        <%= event.plan %>
+        <%= event.plan.call %>
         <%= event.name %>
-        <%= event.num %>
+        <%= event.num.name %>
       <% end %>
     </li>
   </ul>
@@ -16,4 +16,4 @@
 <% end %>
 
 
-<%= link_to 'push', new_event_path %>
+<%= link_to 'お客様用お申し込みフォームへ', new_event_path %>

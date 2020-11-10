@@ -46,7 +46,7 @@ class EventsController < ApplicationController
   private
   
   def event_params
-    params.require(:event).permit(:plan, :num, :option, :start_time, :name, :tel, :price, :token)
+    params.require(:event).permit(:plan_id, :num_id, :option_id, :start_time, :name, :tel, :price, :token)
   end
   
   def pay_event
