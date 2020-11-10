@@ -17,7 +17,9 @@
     <p>コース</p>
   </div>
   <div class ="">
-    <%= f.text_field :plan %>
+    <%# <%= f.text_field :plan_id %>
+    <%= f.collection_select(:plan_id, Plan.all, :id, :name, {}, {class:"#", id:"#"}) %>
+
   </div>
 </div>
 
@@ -26,7 +28,7 @@
     <p>参加人数</p>
   </div>
   <div class ="">
-    <%= f.text_field :num %>
+    <%= f.collection_select(:num_id, Num.all, :id, :name, {}, {class:"#", id:"#"}) %>
   </div>
 </div>
 
@@ -35,7 +37,7 @@
     <p>オプション</p>
   </div>
   <div class ="">
-    <%= f.text_field :option %>
+    <%= f.collection_select(:option_id, Option.all, :id, :name, {}, {class:"#", id:"#"}) %>
   </div>
 </div>
 
