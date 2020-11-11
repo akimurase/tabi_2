@@ -8,8 +8,8 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../card")
-// require("../test")
-// require('jquery')
+require("../test")
+require('jquery')
 // require('../jquery_test')
 
 
