@@ -11,7 +11,20 @@ const test = function () {
       priceOne.innerHTML = dataPrice;
   })
 
+  const selectNum = document.getElementById("num");
 
+  selectNum.addEventListener('change', function (){
+    // 一人料金のidを取得し、値を数字にする
+    const priceOne = document.getElementById("one_price");
+    const priceDisplay = priceOne.innerHTML;
+    // data属性の値を取る
+    const numSelectBox = document.getElementById("num");
+    const dataNum = numSelectBox.options[ numSelectBox.selectedIndex].getAttribute("data-multiple");
+    // 計算する
+    const total = (priceDisplay*dataNum);
+    // 表示する
+    priceTotal.innerHTML = total;
+  })
 
 
 
