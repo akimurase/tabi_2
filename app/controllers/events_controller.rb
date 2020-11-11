@@ -19,10 +19,8 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     if params[:back]
       render :new
-    elsif pay_event && @event.save!
+    else pay_event && @event.save!
       redirect_to @event
-    else
-      render :new
     end
     # render :new and return if params[:back] || !@event.save #この記述は上と一緒
   end
