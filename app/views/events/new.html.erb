@@ -32,7 +32,7 @@
   <div class="option">
     <%= f.label :option, 'オプション' %>
       <% o_options = Option.order(:id).map { |c| [c.name, c.id, data: { optionprice: c.optionprice }] } %>
-    <%= f.select(:option_id, o_options, {class:"#", data:{select:0}, id:"#" }) %>
+    <%= f.select(:option_id, o_options, {}, {class:"#", data:{select:0}, id:"option" }) %>
   </div>
 
     <div class="plan_day">
