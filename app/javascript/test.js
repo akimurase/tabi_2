@@ -88,8 +88,6 @@ const button1 = document.getElementById("button1");
   button1.addEventListener("click", function(){
     alert("確認画面へ")
   });
-
-
 }
 
 
