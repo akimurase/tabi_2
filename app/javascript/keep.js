@@ -25,11 +25,6 @@ const test = function () {
 
 
 
-      // 三つの計算
-      // const total = (Number(dataPrice*dataNum)+Number(dataOption*dataNum));
-      // priceTotal.innerHTML = total;
-
-
 
       
       // ----<フォームに入力>
@@ -82,12 +77,6 @@ const test = function () {
       document.getElementById("f_price").value = displayPriceTotal;
   })
 
-// ---------------------<submitを押した時>
-const button1 = document.getElementById("button1");
-
-  button1.addEventListener("click", function(){
-    alert("確認画面へ")
-  });
 }
 
 

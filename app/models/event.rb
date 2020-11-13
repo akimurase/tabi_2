@@ -7,5 +7,5 @@ class Event < ApplicationRecord
   belongs_to :num
 
   attr_accessor :token
-  validates :plan_id, :num_id, :option_id, :start_time, :name, :tel, :price, presence: true
+  validates :plan_id, :num_id,  :start_time, :name, :tel, :price, presence: true #:option_id,
 end

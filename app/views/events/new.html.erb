@@ -28,12 +28,12 @@
       <% num_options = Num.order(:id).map { |c| [c.name, c.id, data: { multiple: c.multiple }] } %>
     <%= f.select(:num_id, num_options, {}, {class:"#", data:{select:0}, id:"num" }) %>
   </div>
-
+<!--
   <div class="option">
     <%= f.label :option, 'オプション' %>
       <% o_options = Option.order(:id).map { |c| [c.name, c.id, data: { optionprice: c.optionprice }] } %>
     <%= f.select(:option_id, o_options, {}, {class:"#", data:{select:0}, id:"option" }) %>
-  </div>
+  </div> -->
 
     <div class="plan_day">
     <%= f.label :start_time, 'ご希望日' %>
@@ -61,8 +61,8 @@
   </div>
 
   <div>
-    <%# <%= f.hidden_field :price, id: "f_price"  %> %>
-    <%= f.text_field :price, id: "f_price"  %>
+    <%= f.hidden_field :price, id: "f_price"  %>
+    <%# <%= f.text_field :price, id: "f_price"  %> 
   </div>
 
   <div class="submit" >
