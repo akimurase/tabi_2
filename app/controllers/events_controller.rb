@@ -42,15 +42,23 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
     event.destroy
   end
+
+  def search
+    @results = @e.result.includes(:start_time)
+  end
   
   private
   
   def event_params
     params.require(:event).permit(:plan_id, :num_id, :start_time, :name, :tel, :price, :token) #:option_id,
   end
+
+  def search_event
+    @e = Event.ransack(params[:q])
+  end
   
   def pay_event
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # 環境変数に入れて呼び込む
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: event_params[:price], # event_paramsの中から:priceの値を取ってくる
       card: params[:token], # カードトークンはevent_paramsに入ってないからparamsの中から取ってくる。m

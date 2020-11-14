@@ -1,6 +1,13 @@
+  <h3>日付検索</h3>
+<%= search_form_for @e, url: products_search_path do |f| %>
+<%= f.label :start_time_eq, '日付' %>
+<%= f.collection_select :start_time_eq, @events, :start_time, :start_time, include_blank: '指定なし' %>
+<%= f.submit '検索' %>
+
+<% end %> 
+
 <%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
-  
   <ul class="event-list">
     <% events.each do |event| %>
     <li class="list">
