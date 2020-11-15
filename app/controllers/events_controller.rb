@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
+
+  before_action :search_event, only: [:index, :search]
+
   def index
     @events = Event.all
+    set_event_column
   end
 
   def new
@@ -44,9 +48,11 @@ class EventsController < ApplicationController
   end
 
   def search
-    @results = @e.result.includes(:start_time)
+    # binding.pry
+    @results = @e.result#.includes(:event)
   end
   
+
   private
   
   def event_params
@@ -55,6 +61,10 @@ class EventsController < ApplicationController
 
   def search_event
     @e = Event.ransack(params[:q])
+  end
+
+  def set_event_column
+    @event_name = Event.select("start_time").distinct
   end
   
   def pay_event

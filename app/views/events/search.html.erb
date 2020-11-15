@@ -1,1 +1,11 @@
 <h1>検索結果</h1>
+
+<% @results.each do |result| %>
+    <td>
+    <br>
+    <li>
+      <%= result.start_time %>
+      <%= result.plan.name %>
+      <%= result.name %>
+    </li>
+  <% end %>

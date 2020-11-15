@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'events#index'
-  get 'products/search'
+  get 'events/search'
   resources :events do
     #確認画面
       collection do
