@@ -6,5 +6,8 @@ Rails.application.routes.draw do
       collection do
         post :confirm
       end
+      collection do
+        get 'search_words'
+      end
   end
 end

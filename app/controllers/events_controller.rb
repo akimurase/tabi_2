@@ -48,10 +48,13 @@ class EventsController < ApplicationController
   end
 
   def search
-    # binding.pry
     @results = @e.result#.includes(:event)
   end
   
+  def search_words
+    @events = Event.search(params[:keyword])
+  end
+
 
   private
   

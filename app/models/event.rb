@@ -8,4 +8,13 @@ class Event < ApplicationRecord
 
   attr_accessor :token
   validates :plan_id, :num_id,  :start_time, :name, :tel, :price, presence: true #:option_id,
+
+# <ワード検索時の処理>
+  def self.search(search)
+    if search != ""
+      Event.where('name LIKE(?)', "%#{search}%")
+    else
+      Event.all
+    end
+  end
 end
